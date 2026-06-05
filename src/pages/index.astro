@@ -5,6 +5,7 @@ import ServiceGrid from '../components/ServiceGrid.astro';
 import FAQ from '../components/FAQ.astro';
 import CTABand from '../components/CTABand.astro';
 import { site } from '../data/site';
+import { withBase } from '../utils/withBase';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -45,8 +46,8 @@ const services = [
         <p class="lead">Gas Safe registered. Fixed quotes on boiler installs. Same-week appointments across Leeds and West Yorkshire.</p>
         <a class="hero-split__phone" href={`tel:${site.phoneTel}`}>{site.phone}</a>
         <div class="hero-split__actions">
-          <a class="btn btn--orange" href={site.primaryCtaHref}>{site.primaryCtaLabel}</a>
-          <a class="btn btn--navy" href="/services/emergency-plumbing/">Emergency</a>
+          <a class="btn btn--orange" href={withBase(site.primaryCtaHref)}>{site.primaryCtaLabel}</a>
+          <a class="btn btn--navy" href={withBase('/services/emergency-plumbing/')}>Emergency</a>
         </div>
       </div>
       <div class="hero-split__photo" role="img" aria-label="Engineer at work placeholder"></div>
@@ -83,16 +84,16 @@ const services = [
           <cite>Paul R., Kirkstall</cite>
         </blockquote>
       </div>
-      <p style="margin-top:1rem"><a href="/reviews/">Read all reviews →</a></p>
+      <p style="margin-top:1rem"><a href={withBase('/reviews/')}>Read all reviews →</a></p>
     </div>
   </section>
   <section class="block block--white">
     <div class="wrap">
       <h2>Areas we cover</h2>
       <div class="area-pills">
-        <a class="area-pill" href="/areas/leeds/">Leeds</a>
-        <a class="area-pill" href="/areas/bradford/">Bradford</a>
-        <a class="area-pill" href="/areas/wakefield/">Wakefield</a>
+        <a class="area-pill" href={withBase('/areas/leeds/')}>Leeds</a>
+        <a class="area-pill" href={withBase('/areas/bradford/')}>Bradford</a>
+        <a class="area-pill" href={withBase('/areas/wakefield/')}>Wakefield</a>
       </div>
       <div class="map-placeholder" role="img" aria-label="Service area map placeholder">Leeds &amp; West Yorkshire — map placeholder</div>
     </div>

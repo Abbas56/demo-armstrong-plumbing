@@ -1,7 +1,8 @@
 ---
 import { site } from '../data/site';
+import { withBase } from '../utils/withBase';
 ---
 <div class="sticky-arm" role="region" aria-label="Quick contact">
   <a class="sticky-arm__call" href={`tel:${site.phoneTel}`}>Call</a>
-  <a class="sticky-arm__quote" href={site.primaryCtaHref}>Quote</a>
+  <a class="sticky-arm__quote" href={withBase(site.primaryCtaHref)}>Quote</a>
 </div>

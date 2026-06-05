@@ -1,5 +1,6 @@
 ---
 import { site } from '../data/site';
+import { withBase } from '../utils/withBase';
 const year = new Date().getFullYear();
 ---
 <footer class="arm-footer">
@@ -15,26 +16,26 @@ const year = new Date().getFullYear();
         <h3>Services</h3>
         <ul>
           {site.footerLinks.slice(0, 2).map((l) => (
-            <li><a href={l.href}>{l.label}</a></li>
+            <li><a href={withBase(l.href)}>{l.label}</a></li>
           ))}
         </ul>
       </div>
       <div>
         <h3>Areas</h3>
         <ul>
-          <li><a href="/areas/leeds/">Leeds</a></li>
-          <li><a href="/areas/bradford/">Bradford</a></li>
-          <li><a href="/areas/wakefield/">Wakefield</a></li>
+          <li><a href={withBase('/areas/leeds/')}>Leeds</a></li>
+          <li><a href={withBase('/areas/bradford/')}>Bradford</a></li>
+          <li><a href={withBase('/areas/wakefield/')}>Wakefield</a></li>
         </ul>
       </div>
       <div>
         <h3>Company</h3>
         <ul>
           {site.footerLinks.slice(2).map((l) => (
-            <li><a href={l.href}>{l.label}</a></li>
+            <li><a href={withBase(l.href)}>{l.label}</a></li>
           ))}
-          <li><a href="/about/">About</a></li>
-          <li><a href="/reviews/">Reviews</a></li>
+          <li><a href={withBase('/about/')}>About</a></li>
+          <li><a href={withBase('/reviews/')}>Reviews</a></li>
         </ul>
       </div>
     </div>

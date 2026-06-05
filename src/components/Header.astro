@@ -1,9 +1,10 @@
 ---
 import { site } from '../data/site';
+import { withBase } from '../utils/withBase';
 ---
 <header class="arm-header">
   <div class="wrap arm-header__row">
-    <a class="arm-header__brand" href="/">{site.name}</a>
+    <a class="arm-header__brand" href={withBase('/')}>{site.name}</a>
     <a class="arm-header__phone" href={`tel:${site.phoneTel}`}>{site.phone}</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" id="nav-toggle">
       <span></span><span></span><span></span>
@@ -11,13 +12,13 @@ import { site } from '../data/site';
     </button>
     <nav class="arm-nav" aria-label="Main">
       {site.nav.map((item) => (
-        <a href={item.href}>{item.label}</a>
+        <a href={withBase(item.href)}>{item.label}</a>
       ))}
     </nav>
   </div>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
     {site.nav.map((item) => (
-      <a href={item.href}>{item.label}</a>
+      <a href={withBase(item.href)}>{item.label}</a>
     ))}
   </nav>
 </header>

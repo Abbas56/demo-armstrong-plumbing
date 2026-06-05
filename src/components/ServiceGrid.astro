@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../utils/withBase';
+
 interface Service { title: string; description: string; href: string; }
 interface Props { services: Service[]; }
 const { services } = Astro.props;
@@ -9,7 +11,7 @@ const { services } = Astro.props;
       <div class="service-tile__icon" aria-hidden="true"></div>
       <h3>{s.title}</h3>
       <p>{s.description}</p>
-      <a href={s.href}>View service →</a>
+      <a href={withBase(s.href)}>View service →</a>
     </article>
   ))}
 </div>

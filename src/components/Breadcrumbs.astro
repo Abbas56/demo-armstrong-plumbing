@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../utils/withBase';
+
 interface Crumb { label: string; href?: string; }
 interface Props { items: Crumb[]; }
 const { items } = Astro.props;
@@ -7,7 +9,7 @@ const { items } = Astro.props;
   <ol>
     {items.map((item, i) => (
       <li>
-        {item.href ? <a href={item.href}>{item.label}</a> : <span aria-current={i === items.length - 1 ? 'page' : undefined}>{item.label}</span>}
+        {item.href ? <a href={withBase(item.href)}>{item.label}</a> : <span aria-current={i === items.length - 1 ? 'page' : undefined}>{item.label}</span>}
       </li>
     ))}
   </ol>

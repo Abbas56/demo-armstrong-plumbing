@@ -1,0 +1,45 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="arm-footer">
+  <div class="wrap">
+    <div class="arm-footer__grid">
+      <div>
+        <p><strong>{site.legalName}</strong></p>
+        <a class="arm-footer__phone" href={`tel:${site.phoneTel}`}>{site.phone}</a>
+        <p>{site.address.street}<br />{site.address.city}, {site.address.postcode}</p>
+        <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          {site.footerLinks.slice(0, 2).map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3>Areas</h3>
+        <ul>
+          <li><a href="/areas/leeds/">Leeds</a></li>
+          <li><a href="/areas/bradford/">Bradford</a></li>
+          <li><a href="/areas/wakefield/">Wakefield</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul>
+          {site.footerLinks.slice(2).map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
+          ))}
+          <li><a href="/about/">About</a></li>
+          <li><a href="/reviews/">Reviews</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="arm-footer__legal">
+      <p>&copy; {year} {site.legalName}. Gas Safe Register no. 612847 (demo). Demo portfolio site.</p>
+    </div>
+  </div>
+</footer>

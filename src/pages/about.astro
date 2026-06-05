@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CTABand from '../components/CTABand.astro';
+---
+<BaseLayout title="About | Armstrong Plumbing" description="Family-run Gas Safe registered plumbers in Leeds since 2009.">
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+  <section class="section">
+    <div class="container grid-2">
+      <div class="content-prose">
+        <h1>About Armstrong Plumbing & Heating</h1>
+        <p class="lead">Mark and Sarah Armstrong built this firm on punctuality, tidy work and honest quotes.</p>
+        <p>We are a Leeds-based team of Gas Safe registered engineers serving homeowners and landlords across West Yorkshire.</p>
+        <p>Every job starts with a clear written quote. We use shoe covers and dust sheets as standard—not as an upsell.</p>
+        <ul class="check-list">
+          <li>Gas Safe registered (612847 demo)</li>
+          <li>£5m public liability insurance</li>
+          <li>Manufacturer-approved boiler installs</li>
+          <li>Landlord CP12 specialists</li>
+        </ul>
+      </div>
+      <div class="hero__img"><div class="placeholder-img" role="img" aria-label="Team placeholder"></div></div>
+    </div>
+  </section>
+  <CTABand />
+</BaseLayout>

@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyMobileCTA from '../components/StickyMobileCTA.astro';
+import TopStrip from '../components/EmergencyStrip.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title = `${site.name} — ${site.tagline}`,
+  description = site.description,
+  jsonLd,
+} = Astro.props;
+
+const schema = jsonLd
+  ? JSON.stringify(Array.isArray(jsonLd) ? jsonLd : [jsonLd])
+  : null;
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    {schema && <script type="application/ld+json" set:html={schema} />}
+  </head>
+  <body>
+    <TopStrip />
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <StickyMobileCTA />
+  </body>
+</html>

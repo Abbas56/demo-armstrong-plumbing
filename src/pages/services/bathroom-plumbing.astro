@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const page = {
+  title: 'Bathroom plumbing',
+  description: 'First-fix and second-fix plumbing for bathroom refurbishments in Leeds homes.',
+  intro: `From repositioning wastes to installing showers and heated towel rails, we coordinate with your tiler or builder for a watertight finish.`,
+  bullets: ["Shower pumps and digital showers","Toilet and basin installations","Bath and wet-room wastes","Chrome pipework with pressure testing"],
+  faqs: [{"question":"Can you work with my bathroom fitter?","answer":"Yes. We are used to staged projects and provide first-fix before boarding, then second-fix after tiling."},{"question":"Do you handle waste disposal?","answer":"We remove plumbing packaging and old sanitaryware when agreed in advance. Skip hire remains with your main contractor unless quoted."}],
+};
+---
+<BaseLayout title={`${page.title} | Armstrong Plumbing`} description={page.description}>
+  <Breadcrumbs items={[{"label":"Home","href":"/"},{"label":"Services","href":"/services/boiler-installation/"},{"label":"Bathroom plumbing"}]} />
+  <article class="section">
+    <div class="container page-hero content-prose">
+      <h1>{page.title}</h1>
+      <p class="lead">{page.intro}</p>
+      <ul class="check-list">
+        {page.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+  </article>
+  <FAQ items={page.faqs} />
+  <CTABand heading="Get in touch" text="Contact us for a friendly chat about your requirements." />
+</BaseLayout>

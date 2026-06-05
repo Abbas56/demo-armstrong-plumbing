@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title={`Contact | ${site.name}`} description="Contact Armstrong Plumbing & Heating Ltd. Call 0113 496 7821 or send an enquiry.">
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} />
+  <section class="section">
+    <div class="container grid-2">
+      <div>
+        <h1>Contact us</h1>
+        <p class="lead">We aim to respond to enquiries within one working day.</p>
+        <p><strong>Phone:</strong> <a href={`tel:${site.phoneTel}`}>{site.phone}</a></p>
+        <p><strong>Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></p>
+        <p><strong>Address:</strong><br />{site.address.street}<br />{site.address.city}, {site.address.postcode}</p>
+      </div>
+      <form class="form-card" name="contact" method="POST" data-netlify="true" action={site.formAction}>
+        <input type="hidden" name="form-name" value="contact" />
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">Send enquiry</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

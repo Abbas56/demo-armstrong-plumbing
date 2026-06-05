@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const page = {
+  title: 'Boiler installation in Leeds',
+  description: 'New combi and system boiler installation with manufacturer warranties and Gas Safe certification.',
+  intro: `We install reliable boilers for homes across Leeds, with clear pricing and tidy workmanship. Every installation is completed by Gas Safe registered engineers.`,
+  bullets: ["Combi, system and heat-only boilers","Power flushing and magnetic filters where needed","Building Regulations notification included","Manufacturer warranty registration handled for you"],
+  faqs: [{"question":"How long does a boiler installation take?","answer":"Most replacements are completed within one day. Larger system changes may take two days—we will confirm timings in your written quote."},{"question":"Do you supply the boiler?","answer":"Yes. We can recommend models suited to your property and hot water use, or install a customer-supplied boiler if it meets warranty requirements."}],
+};
+---
+<BaseLayout title={`${page.title} | Armstrong Plumbing`} description={page.description}>
+  <Breadcrumbs items={[{"label":"Home","href":"/"},{"label":"Services","href":"/services/boiler-installation/"},{"label":"Boiler installation"}]} />
+  <article class="section">
+    <div class="container page-hero content-prose">
+      <h1>{page.title}</h1>
+      <p class="lead">{page.intro}</p>
+      <ul class="check-list">
+        {page.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+  </article>
+  <FAQ items={page.faqs} />
+  <CTABand heading="Book a boiler survey" text="Arrange a free home visit for a fixed-price installation quote." />
+</BaseLayout>

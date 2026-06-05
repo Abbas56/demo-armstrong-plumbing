@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const page = {
+  title: 'Plumber in Wakefield',
+  description: 'Heating repairs and installations for Wakefield and WF postcodes.',
+  intro: `From Pontefract to Ossett, our team schedules planned installs and emergency make-safes across Wakefield district.`,
+  bullets: ["WF postcodes covered weekly","Landlord gas safety visits","Radiator and control upgrades","Written estimates for insurance claims"],
+  faqs: [{"question":"How quickly can you attend Wakefield?","answer":"Planned work is typically within 3–5 days. Emergencies are prioritised by severity—the desk will be honest about wait times."}],
+};
+---
+<BaseLayout title={`${page.title} | Armstrong Plumbing`} description={page.description}>
+  <Breadcrumbs items={[{"label":"Home","href":"/"},{"label":"Areas","href":"/areas/leeds/"},{"label":"Plumber"}]} />
+  <article class="section">
+    <div class="container page-hero content-prose">
+      <h1>{page.title}</h1>
+      <p class="lead">{page.intro}</p>
+      <ul class="check-list">
+        {page.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+  </article>
+  <FAQ items={page.faqs} />
+  <CTABand heading="Get in touch" text="Contact us for a friendly chat about your requirements." />
+</BaseLayout>

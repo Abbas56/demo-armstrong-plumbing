@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const page = {
+  title: 'Central heating & radiators',
+  description: 'Power flushing, radiator upgrades and heating controls for warmer, more efficient homes.',
+  intro: `Cold spots, noisy pipes or an inefficient system often benefit from balanced radiators and modern controls.`,
+  bullets: ["Thermostatic radiator valves (TRVs)","Smart thermostat installation","Power flushing and inhibitor treatment","Full system design for extensions"],
+  faqs: [{"question":"Will power flushing fix cold radiators?","answer":"It often improves flow where sludge is present. We survey first—some issues are balancing or valve related."},{"question":"Can you add radiators to an extension?","answer":"Yes. We calculate heat requirements and pipe routes, then issue a fixed quote for the additional work."}],
+};
+---
+<BaseLayout title={`${page.title} | Armstrong Plumbing`} description={page.description}>
+  <Breadcrumbs items={[{"label":"Home","href":"/"},{"label":"Services","href":"/services/boiler-installation/"},{"label":"Central heating & radiators"}]} />
+  <article class="section">
+    <div class="container page-hero content-prose">
+      <h1>{page.title}</h1>
+      <p class="lead">{page.intro}</p>
+      <ul class="check-list">
+        {page.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+  </article>
+  <FAQ items={page.faqs} />
+  <CTABand heading="Get in touch" text="Contact us for a friendly chat about your requirements." />
+</BaseLayout>

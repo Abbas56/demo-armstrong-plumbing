@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQ from '../components/FAQ.astro';
+import CTABand from '../components/CTABand.astro';
+const items = [{"question":"Do you charge a call-out fee?","answer":"We do not charge for quotes within LS postcodes. Emergency out-of-hours visits may include a call-out fee—we tell you before we dispatch."},{"question":"Are you Gas Safe registered?","answer":"Yes. Our registration number is 612847 (demo). You can verify this on the Gas Safe Register website."},{"question":"How quickly can you fit a new boiler?","answer":"Most replacements are completed in 1–2 days once parts are confirmed. We often have same-week survey slots."},{"question":"Do you offer finance?","answer":"We can point you to reputable finance providers for boiler installs—ask when you request your quote."},{"question":"Which areas do you cover?","answer":"Leeds, Bradford, Wakefield and surrounding West Yorkshire postcodes. Call if you are slightly outside—we often still cover."}];
+---
+<BaseLayout title="FAQ | Armstrong Plumbing" description="Answers to common questions about Armstrong Plumbing & Heating Ltd.">
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'FAQ' }]} />
+  <section class="section">
+    <div class="container">
+      <h1>Frequently asked questions</h1>
+      <p class="lead">Practical answers for customers across West Yorkshire.</p>
+    </div>
+  </section>
+  <FAQ items={items} title="Common questions" />
+  <CTABand />
+</BaseLayout>

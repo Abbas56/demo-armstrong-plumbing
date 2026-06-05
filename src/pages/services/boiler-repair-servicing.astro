@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const page = {
+  title: 'Boiler repair & annual servicing',
+  description: 'Boiler breakdown repairs and annual service visits to keep your warranty valid and heating efficient.',
+  intro: `If your boiler has stopped working or your annual service is due, our Leeds engineers provide honest diagnostics and safe repairs.`,
+  bullets: ["Same-week appointments where possible","Genuine parts for major boiler brands","Landlord CP12 available alongside servicing","Safety checks and flue inspection included"],
+  faqs: [{"question":"My boiler shows an error code—can you help?","answer":"Yes. Note the code displayed and call us. We carry common parts for Worcester, Vaillant, Ideal and Baxi boilers."},{"question":"Does servicing affect my warranty?","answer":"Most manufacturers require an annual service by a Gas Safe engineer. We provide a service record for your files."}],
+};
+---
+<BaseLayout title={`${page.title} | Armstrong Plumbing`} description={page.description}>
+  <Breadcrumbs items={[{"label":"Home","href":"/"},{"label":"Services","href":"/services/boiler-installation/"},{"label":"Boiler repair & annual servicing"}]} />
+  <article class="section">
+    <div class="container page-hero content-prose">
+      <h1>{page.title}</h1>
+      <p class="lead">{page.intro}</p>
+      <ul class="check-list">
+        {page.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+  </article>
+  <FAQ items={page.faqs} />
+  <CTABand heading="Get in touch" text="Contact us for a friendly chat about your requirements." />
+</BaseLayout>

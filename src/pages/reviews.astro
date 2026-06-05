@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CTABand from '../components/CTABand.astro';
+---
+<BaseLayout title="Reviews | Armstrong Plumbing" description="Customer reviews for Armstrong Plumbing & Heating Ltd.">
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Reviews' }]} />
+  <section class="section">
+    <div class="container">
+      <h1>Customer reviews</h1>
+      <p class="lead">Honest feedback from homeowners and landlords across West Yorkshire.</p>
+      <div class="reviews-grid" style="margin-top:2rem">
+        <blockquote class="review-card"><p>"Mark arrived on time, explained exactly what was wrong with our Worcester boiler, and had it running again within the hour. Fair price and left the kitchen spotless."</p><cite>— Janet M., Roundhay</cite></blockquote>
+        <blockquote class="review-card"><p>"Armstrong handle gas safety checks for four of my properties. Reliable paperwork, easy to book, and tenants never complain about mess."</p><cite>— David T., Bradford landlord</cite></blockquote>
+        <blockquote class="review-card"><p>"New combi installed in two days. Quote matched the final invoice. Would recommend to anyone in Leeds."</p><cite>— Paul R., Kirkstall</cite></blockquote>
+        <blockquote class="review-card"><p>"Called for an emergency leak on a Sunday. Honest about the out-of-hours rate and fixed it properly."</p><cite>— Helen S., Headingley</cite></blockquote>
+      </div>
+    </div>
+  </section>
+  <CTABand heading="Join our happy customers" text="Request a quote or call us to discuss your job." />
+</BaseLayout>

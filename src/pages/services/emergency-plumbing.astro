@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const page = {
+  title: 'Emergency plumbing',
+  description: '24/7 emergency plumbing for burst pipes, leaks and loss of heating in Leeds and West Yorkshire.',
+  intro: `When water is escaping or you have no heating, you need a calm, qualified team on the way. We prioritise genuine emergencies across Leeds.`,
+  bullets: ["Burst pipes and major leaks","Blocked toilets and drains (domestic)","Loss of heating in winter","Temporary make-safe followed by permanent repair"],
+  faqs: [{"question":"What counts as an emergency?","answer":"Uncontrolled water, no heating with vulnerable occupants, or a smell of gas—call the Gas Emergency line first on 0800 111 999, then us for plumbing support."},{"question":"Do you charge a call-out fee?","answer":"We explain costs before work starts. Out-of-hours rates apply for nights and bank holidays and are confirmed on the phone."}],
+};
+---
+<BaseLayout title={`${page.title} | Armstrong Plumbing`} description={page.description}>
+  <Breadcrumbs items={[{"label":"Home","href":"/"},{"label":"Services","href":"/services/boiler-installation/"},{"label":"Emergency plumbing"}]} />
+  <article class="section">
+    <div class="container page-hero content-prose">
+      <h1>{page.title}</h1>
+      <p class="lead">{page.intro}</p>
+      <ul class="check-list">
+        {page.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+  </article>
+  <FAQ items={page.faqs} />
+  <CTABand heading="Get in touch" text="Contact us for a friendly chat about your requirements." />
+</BaseLayout>

@@ -1,0 +1,12 @@
+---
+interface Props { heading?: string; text?: string; href?: string; label?: string; }
+import { site } from '../data/site';
+const { heading = 'Need a plumber this week?', text = 'Tell us what is wrong—we will call you back within one working hour.', href = site.primaryCtaHref, label = site.primaryCtaLabel } = Astro.props;
+---
+<section class="cta-band">
+  <div class="wrap">
+    <h2>{heading}</h2>
+    <p>{text}</p>
+    <a class="btn btn--orange" href={href}>{label}</a>
+  </div>
+</section>

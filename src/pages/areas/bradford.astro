@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const page = {
+  title: 'Plumber in Bradford',
+  description: 'Boiler and bathroom plumbing for Bradford and BD postcodes.',
+  intro: `We support Bradford homeowners and small landlords with Gas Safe work and clear communication.`,
+  bullets: ["BD1–BD18 coverage","Boiler installation and CP12","Bathroom second-fix plumbing","No subcontracting to unknown trades"],
+  faqs: [{"question":"Is there an extra charge for Bradford?","answer":"Some BD postcodes incur a small travel supplement—this is shown on your quote before booking."}],
+};
+---
+<BaseLayout title={`${page.title} | Armstrong Plumbing`} description={page.description}>
+  <Breadcrumbs items={[{"label":"Home","href":"/"},{"label":"Areas","href":"/areas/leeds/"},{"label":"Plumber"}]} />
+  <article class="section">
+    <div class="container page-hero content-prose">
+      <h1>{page.title}</h1>
+      <p class="lead">{page.intro}</p>
+      <ul class="check-list">
+        {page.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+  </article>
+  <FAQ items={page.faqs} />
+  <CTABand heading="Get in touch" text="Contact us for a friendly chat about your requirements." />
+</BaseLayout>

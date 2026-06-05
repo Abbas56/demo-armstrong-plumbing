@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const page = {
+  title: 'Landlord gas safety (CP12)',
+  description: 'Annual gas safety certificates for landlords and letting agents in Leeds.',
+  intro: `Stay compliant with clear CP12 documentation, reminder scheduling and reliable access arrangements with tenants.`,
+  bullets: ["Gas safety checks to GSIUR standards","Certificate issued within 24 hours","Boiler service add-ons available","Portfolio pricing for multiple properties"],
+  faqs: [{"question":"How often is a CP12 required?","answer":"Every 12 months for gas appliances in rented properties in England."},{"question":"What if an appliance fails?","answer":"We isolate unsafe appliances, explain remedial works and provide a quote before returning the appliance to use."}],
+};
+---
+<BaseLayout title={`${page.title} | Armstrong Plumbing`} description={page.description}>
+  <Breadcrumbs items={[{"label":"Home","href":"/"},{"label":"Services","href":"/services/boiler-installation/"},{"label":"Landlord gas safety (CP12)"}]} />
+  <article class="section">
+    <div class="container page-hero content-prose">
+      <h1>{page.title}</h1>
+      <p class="lead">{page.intro}</p>
+      <ul class="check-list">
+        {page.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+  </article>
+  <FAQ items={page.faqs} />
+  <CTABand heading="Get in touch" text="Contact us for a friendly chat about your requirements." />
+</BaseLayout>

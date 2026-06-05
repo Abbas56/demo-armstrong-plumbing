@@ -1,0 +1,15 @@
+---
+import { site } from '../data/site';
+---
+<div class="trust-badges">
+  <div class="wrap">
+    <ul class="trust-badges__row">
+      {site.trustItems.map((item, i) => (
+        <li class:list={['trust-badge', i === 0 && 'trust-badge--green']}>
+          <span>{item.label}</span> — {item.text}
+        </li>
+      ))}
+      <li class="trust-badge trust-badge--green">Fully insured</li>
+    </ul>
+  </div>
+</div>

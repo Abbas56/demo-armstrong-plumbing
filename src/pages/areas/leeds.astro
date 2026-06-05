@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const page = {
+  title: 'Plumber in Leeds',
+  description: 'Local plumbing and heating engineers serving LS postcodes and surrounding districts.',
+  intro: `Based on Kirkstall Road, we reach Headingley, Roundhay, Morley and city-centre flats with fast response times.`,
+  bullets: ["Same-day emergency slots where available","Free quotes for boiler replacements","Parking and access planned in advance","Trusted by Leeds homeowners since 2008 (demo)"],
+  faqs: [{"question":"Which Leeds areas do you cover?","answer":"All LS postcodes plus Garforth and Wetherby. Call if you are slightly outside—we often still cover."}],
+};
+---
+<BaseLayout title={`${page.title} | Armstrong Plumbing`} description={page.description}>
+  <Breadcrumbs items={[{"label":"Home","href":"/"},{"label":"Areas","href":"/areas/leeds/"},{"label":"Plumber"}]} />
+  <article class="section">
+    <div class="container page-hero content-prose">
+      <h1>{page.title}</h1>
+      <p class="lead">{page.intro}</p>
+      <ul class="check-list">
+        {page.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+  </article>
+  <FAQ items={page.faqs} />
+  <CTABand heading="Get in touch" text="Contact us for a friendly chat about your requirements." />
+</BaseLayout>

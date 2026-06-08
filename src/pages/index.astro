@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TrustBar from '../components/TrustBar.astro';
 import ServiceGrid from '../components/ServiceGrid.astro';
@@ -6,6 +7,8 @@ import FAQ from '../components/FAQ.astro';
 import CTABand from '../components/CTABand.astro';
 import { site } from '../data/site';
 import { withBase } from '../utils/withBase';
+import heroEngineer from '../assets/images/hero-engineer.jpg';
+import areaLeeds from '../assets/images/area-leeds.jpg';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -29,12 +32,12 @@ const jsonLd = {
 const previewFaqs = [{"question":"Do you charge a call-out fee?","answer":"We do not charge for quotes within LS postcodes. Emergency out-of-hours visits may include a call-out fee—we tell you before we dispatch."},{"question":"Are you Gas Safe registered?","answer":"Yes. Our registration number is 612847 (demo). You can verify this on the Gas Safe Register website."},{"question":"How quickly can you fit a new boiler?","answer":"Most replacements are completed in 1–2 days once parts are confirmed. We often have same-week survey slots."}];
 
 const services = [
-  { title: "Boiler installation", description: "Worcester, Vaillant and Ideal systems with warranty registration.", href: "/services/boiler-installation/" },
-  { title: "Boiler repair & servicing", description: "Breakdown repairs and annual services to keep warranties valid.", href: "/services/boiler-repair-servicing/" },
-  { title: "Emergency plumbing", description: "Burst pipes, leaks and loss of heating—prioritised response.", href: "/services/emergency-plumbing/" },
-  { title: "Bathroom plumbing", description: "First and second-fix plumbing for refurbishments.", href: "/services/bathroom-plumbing/" },
-  { title: "Landlord CP12", description: "Annual gas safety certificates with reminder scheduling.", href: "/services/landlord-gas-safety/" },
-  { title: "Heating & radiators", description: "Power flushing, TRVs and smart thermostat installs.", href: "/services/central-heating-radiators/" },
+  { title: "Boiler installation", description: "Worcester, Vaillant and Ideal systems with warranty registration.", href: "/services/boiler-installation/", icon: "flame" },
+  { title: "Boiler repair & servicing", description: "Breakdown repairs and annual services to keep warranties valid.", href: "/services/boiler-repair-servicing/", icon: "wrench" },
+  { title: "Emergency plumbing", description: "Burst pipes, leaks and loss of heating—prioritised response.", href: "/services/emergency-plumbing/", icon: "triangle-alert" },
+  { title: "Bathroom plumbing", description: "First and second-fix plumbing for refurbishments.", href: "/services/bathroom-plumbing/", icon: "bath" },
+  { title: "Landlord CP12", description: "Annual gas safety certificates with reminder scheduling.", href: "/services/landlord-gas-safety/", icon: "shield-check" },
+  { title: "Heating & radiators", description: "Power flushing, TRVs and smart thermostat installs.", href: "/services/central-heating-radiators/", icon: "thermometer" },
 ];
 ---
 <BaseLayout title={`${site.name} — ${site.tagline}`} description={site.description} jsonLd={jsonLd}>
@@ -50,7 +53,9 @@ const services = [
           <a class="btn btn--navy" href={withBase('/services/emergency-plumbing/')}>Emergency</a>
         </div>
       </div>
-      <div class="hero-split__photo" role="img" aria-label="Engineer at work placeholder"></div>
+      <div class="hero-split__photo">
+        <Image src={heroEngineer} alt="Gas Safe engineer servicing a boiler" widths={[400, 800, 1200]} sizes="(min-width: 48rem) 45vw, 100vw" />
+      </div>
     </div>
   </section>
   <section class="block block--dense">
@@ -95,7 +100,9 @@ const services = [
         <a class="area-pill" href={withBase('/areas/bradford/')}>Bradford</a>
         <a class="area-pill" href={withBase('/areas/wakefield/')}>Wakefield</a>
       </div>
-      <div class="map-placeholder" role="img" aria-label="Service area map placeholder">Leeds &amp; West Yorkshire — map placeholder</div>
+      <div class="map-placeholder">
+        <Image src={areaLeeds} alt="Leeds and West Yorkshire service area" widths={[600, 1200]} sizes="100vw" />
+      </div>
     </div>
   </section>
   <FAQ items={previewFaqs} title="Common questions" />

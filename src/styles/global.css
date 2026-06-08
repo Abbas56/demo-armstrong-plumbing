@@ -177,9 +177,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .hero-split__actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1rem; }
 .hero-split__photo {
   aspect-ratio: 5/4;
-  background: linear-gradient(145deg, #1B3A4B 0%, #2d5a6e 55%, #E8751E 100%);
+  overflow: hidden;
   border: 4px solid #1B3A4B;
 }
+.hero-split__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* Service grid 3×2 */
 .service-grid {
@@ -200,10 +201,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .service-tile__icon {
   width: 2rem;
   height: 2rem;
-  background: #E8751E;
   margin-bottom: 0.5rem;
-  border-radius: 2px;
+  color: #E8751E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.service-tile__icon :global(svg) { display: block; }
 .service-tile h3 { margin: 0 0 0.35rem; font-size: 1rem; text-transform: none; letter-spacing: 0; }
 .service-tile p { flex: 1; margin: 0; font-size: 0.875rem; color: #4a5568; }
 .service-tile a {
@@ -275,15 +279,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .area-pill:hover { background: #1B3A4B; color: #fff; }
 .map-placeholder {
   height: 12rem;
-  background: #d8dde0;
+  overflow: hidden;
   border: 3px solid #1B3A4B;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #4a5568;
 }
+.map-placeholder img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* CTA band */
 .cta-band {
@@ -429,13 +428,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   font-weight: 700;
 }
 .review-card cite { display: block; margin-top: 0.5rem; font-style: normal; font-size: 0.8125rem; font-weight: 600; }
-.hero__img { aspect-ratio: 4/3; border: 3px solid #1B3A4B; }
-.placeholder-img {
-  width: 100%;
-  height: 100%;
-  min-height: 12rem;
-  background: linear-gradient(145deg, #1B3A4B, #E8751E);
-}
+.hero__img { aspect-ratio: 4/3; border: 3px solid #1B3A4B; overflow: hidden; }
+.hero__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .btn--primary {
   background: #E8751E; color: #fff; border: 2px solid #E8751E;
   display: inline-flex; align-items: center; padding: 0.7rem 1.15rem;

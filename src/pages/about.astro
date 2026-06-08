@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CTABand from '../components/CTABand.astro';
+import aboutTeam from '../assets/images/about-team.jpg';
 ---
 <BaseLayout title="About | Armstrong Plumbing" description="Family-run Gas Safe registered plumbers in Leeds since 2009.">
   <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
@@ -19,7 +21,9 @@ import CTABand from '../components/CTABand.astro';
           <li>Landlord CP12 specialists</li>
         </ul>
       </div>
-      <div class="hero__img"><div class="placeholder-img" role="img" aria-label="Team placeholder"></div></div>
+      <div class="hero__img">
+        <Image src={aboutTeam} alt="Armstrong Plumbing team on site" widths={[400, 800, 1200]} sizes="(min-width: 48rem) 45vw, 100vw" />
+      </div>
     </div>
   </section>
   <CTABand />

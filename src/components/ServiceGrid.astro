@@ -1,14 +1,15 @@
 ---
 import { withBase } from '../utils/withBase';
+import { serviceIcons } from '../data/icons';
 
-interface Service { title: string; description: string; href: string; }
+interface Service { title: string; description: string; href: string; icon: string; }
 interface Props { services: Service[]; }
 const { services } = Astro.props;
 ---
 <div class="service-grid">
   {services.map((s) => (
     <article class="service-tile">
-      <div class="service-tile__icon" aria-hidden="true"></div>
+      <div class="service-tile__icon" set:html={serviceIcons[s.icon]} />
       <h3>{s.title}</h3>
       <p>{s.description}</p>
       <a href={withBase(s.href)}>View service →</a>
